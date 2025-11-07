@@ -1,0 +1,24 @@
+<div class="sponsor-component">
+    <h2>📢 Pauta tu Proyecto con Nosotros</h2>
+    <form id="sponsorForm" class="sponsor-form" enctype="multipart/form-data">
+        <% model.fields.forEach(field=> { %>
+            <div class="form-group">
+                <label for="<%= field.name %>">
+                    <%= field.label %>
+                        <%= field.required ? ' *' : '' %>
+                </label>
+                <% if (field.type==='textarea' ) { %>
+                    <textarea id="<%= field.name %>" name="<%= field.name %>" rows="5" <%=field.required ? 'required'
+                        : '' %>></textarea>
+                    <% } else if (field.type==='file' ) { %>
+                        <input type="file" id="<%= field.name %>" name="<%= field.name %>" accept="image/*"
+                            <%=field.required ? 'required' : '' %>>
+                        <% } else { %>
+                            <input type="<%= field.type %>" id="<%= field.name %>" name="<%= field.name %>"
+                                <%=field.required ? 'required' : '' %>>
+                            <% } %>
+            </div>
+            <% }) %>
+                <button type="submit" class="submit-btn">Enviar Solicitud</button>
+    </form>
+</div>

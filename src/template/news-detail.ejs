@@ -1,0 +1,37 @@
+<% if (news) { %>
+    <div class="modal-overlay" data-overlay="news">
+        <article class="news-modal">
+            <button class="modal-close" data-action="close">&times;</button>
+            <img src="<%= news.image %>" alt="<%= news.title %>" class="modal-image">
+            <div class="modal-content">
+                <h2>
+                    <%= news.title %>
+                </h2>
+                <time>
+                    <%= news.date %>
+                </time>
+                <p class="modal-summary">
+                    <%= news.content %>
+                </p>
+
+                <section class="teacher-comments">
+                    <h3>Comentarios del Jurado</h3>
+                    <blockquote>
+                        <%= news.comments %>
+                    </blockquote>
+                </section>
+
+                <div class="modal-actions">
+                    <button class="btn-like" data-id="<%= news.id %>">
+                        ❤️ Me gusta
+                    </button>
+                    <button class="btn-fav" data-id="<%= news.id %>">
+                        ⭐ Guardar en Favoritos
+                    </button>
+                </div>
+            </div>
+        </article>
+    </div>
+    <% } else { %>
+        <div class="empty-state">Proyecto no encontrado</div>
+        <% } %>

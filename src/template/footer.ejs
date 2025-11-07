@@ -1,0 +1,23 @@
+<footer class="upb-footer">
+    <div class="footer-content">
+        <div class="footer-links">
+            <% model.links.forEach(link=> { %>
+                <a href="<%= link.href %>" class="footer-link">
+                    <%= link.label %>
+                </a>
+                <% }) %>
+        </div>
+        <div class="footer-contact">
+            <p>
+                <%= model.contact.address %>
+            </p>
+            <p>Tel: <%= model.contact.phone %>
+            </p>
+            <p>Email: <%= model.contact.email %>
+            </p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Universidad Pontificia Bolivariana - Todos los derechos reservados</p>
+    </div>
+</footer>
