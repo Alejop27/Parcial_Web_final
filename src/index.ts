@@ -1,96 +1,71 @@
-import express from 'express';
-import path from 'path';
+import express from "express";
+import path from "path";
 
-import { NewsRepository } from '../src/repository/newsRepository';
-import { HeaderFactory } from '../src/header/factory/Factory';
-import { BodyFactory } from '../src/body/factory/Factory';
-import { FooterFactory } from '../src/footer/factory/Factory';
-import { SponsorFactory } from '../src/sponsor/factory/Factory';
+// Importa los routers de cada componente
+import headerRouter from "./header/router/Router";
+import bodyRouter from "./body/router/Router";
+import newsRouter from "./news/router/Router";
+import sponsorRouter from "./sponsor/router/Router";
+import favoritesRouter from "./favorites/router/Router";
+import footerRouter from "./footer/router/Router";
 
-// Routers
-import headerRouter from '../src/header/router/Router';
-import bodyRouter from '../src/body/router/Router';
-import newsRouter from '../src/news/router/Router';
-import sponsorRouter from '../src/sponsor/router/Router';
-import footerRouter from '../src/footer/router/Router';
+// Importa las factories para renderizar header, body, sponsor, footer
+import { HeaderFactory } from "./header/factory/Factory";
+import { BodyFactory } from "./body/factory/Factory";
+import { FooterFactory } from "./footer/factory/Factory";
+import { SponsorFactory } from "./sponsor/factory/Factory";
+import { NewsRepository } from "./repository/newsRepository";
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env["PORT"] || 3000;
 
 // Archivos estáticos y parsers
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, '../assets')));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // EJS
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'template'));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "template"));
 
-// Instancias
+// Routers por componente (API/acciones específicas)
+app.use(headerRouter);
+app.use(bodyRouter);
+app.use(newsRouter);
+app.use(sponsorRouter);
+app.use(favoritesRouter);
+app.use(footerRouter);
+
+// Factories para renderizar componentes principales (HTML incluido en layout)
 const repository = new NewsRepository();
 const headerFactory = new HeaderFactory();
 const bodyFactory = new BodyFactory(repository);
 const footerFactory = new FooterFactory();
 const sponsorFactory = new SponsorFactory();
 
-// Middleware global (header, footer y sponsor por defecto)
-app.use(async (_req, res, next) => {
-  try {
-    const headerComponent = headerFactory.createComponent();
-    const footerComponent = footerFactory.createComponent();
+// Render principal (home)
+app.get("/", async (_req, res) => {
+  const header = await headerFactory.createComponent().render();
+  const body = await bodyFactory.createComponent().render();
+  const sponsor = await sponsorFactory.createComponent().render();
+  const footer = await footerFactory.createComponent().render();
 
-    const [header, footer] = await Promise.all([
-      headerComponent.render(),
-      footerComponent.render()
-    ]);
-
-    res.locals["header"] = header;
-    res.locals["footer"] = footer;
-
-    // Evita ReferenceError en templates si alguna ruta no pasa sponsor
-    res.locals["sponsor"] = res.locals["sponsor"] || '';
-
-    next();
-  } catch (err) {
-    console.error('❌ Error renderizando header/footer:', err);
-    next(err);
-  }
+  res.render("layout", {
+    title: "Proyectos Integradores UPB 2025",
+    header,
+    body,
+    sponsor,
+    footer
+  });
 });
 
-// Rutas
-app.use(headerRouter);
-app.use(bodyRouter);
-app.use(newsRouter);
-app.use(sponsorRouter);
-app.use(footerRouter);
 
-// Ruta principal
-app.get('/', async (req, res) => {
-  try {
-    const page = parseInt(req.query['page'] as string) || 1;
-    const search = (req.query['search'] as string) || '';
-    const filter = (req.query['filter'] as string) || 'all';
-
-    const bodyComponent = bodyFactory.createComponent(page, filter, search);
-    const sponsorComponent = sponsorFactory.createComponent();
-
-    const [body, sponsor] = await Promise.all([
-      bodyComponent.render(),
-      sponsorComponent.render()
-    ]);
-
-    res.render('layout', {
-      title: 'Proyectos Integradores UPB - 2025',
-      body,
-      sponsor
-    });
-  } catch (err) {
-    console.error('❌ Error renderizando la página principal:', err);
-    res.status(500).send('Error interno del servidor');
-  }
+// Fallback para URLs no encontradas
+app.use((_req, res) => {
+  res.status(404).send("<h1>Página no encontrada</h1>");
 });
 
+// Inicia el servidor
 app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
 });

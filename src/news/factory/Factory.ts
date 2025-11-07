@@ -1,20 +1,19 @@
-import { NewsModel } from '../model/Model';
-import { NewsView } from '../view/View';
-import { NewsRepository } from '../../repository/newsRepository';
-
+import { NewsRepository } from "../../repository/newsRepository";
+import { NewsModel } from "../model/Model";
+import { NewsView } from "../view/View";
 export class NewsFactory {
     constructor(private repository: NewsRepository) { }
-
     createComponent(newsId: number) {
-        const model = new NewsModel(newsId, this.repository);
-        const view = new NewsView(this.repository);
-
+        const model = new NewsModel(this.repository);
+        const view = new NewsView();
         return {
             model,
             view,
-            // ahora render devuelve una promesa
-            render: async () => await view.render(newsId),
-            addLike: () => model.addLike()
+            render: async () => {
+                const news = model.getNewsById(newsId);
+                return news ? await view.render(news) : "<div>Proyecto no encontrado</div>";
+            },
+            addLike: () => model.addLike(newsId)
         };
     }
 }

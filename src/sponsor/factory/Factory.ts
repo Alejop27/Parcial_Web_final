@@ -1,11 +1,9 @@
-import { SponsorModel } from '../model/Model';
-import { SponsorView } from '../view/View';
-
+import { SponsorModel } from "../model/Model";
+import { SponsorView } from "../view/View";
 export class SponsorFactory {
     createComponent() {
         const model = new SponsorModel();
         const view = new SponsorView();
-
         return {
             model,
             view,

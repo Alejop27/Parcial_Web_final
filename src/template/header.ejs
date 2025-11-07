@@ -1,6 +1,6 @@
 <header class="upb-header">
     <div class="header-container">
-        <img src="<%= model.logo %>" alt="UPB Logo" class="header-logo">
+        <img src="<%= model.logo %>" alt="Logo UPB" class="header-logo" />
         <nav class="header-nav">
             <% model.menuItems.forEach(item=> { %>
                 <a href="<%= item.href %>" class="nav-link">
@@ -9,11 +9,11 @@
                 <% }) %>
         </nav>
         <div class="user-menu" id="userMenu">
-            <img src="/assets/images/user.svg" alt="Usuario" class="user-avatar">
+            <img src="/assets/images/user.svg" alt="Usuario" class="user-avatar" />
             <div class="user-dropdown" id="userDropdown">
-                <% model.userMenu.forEach(item=> { %>
-                    <button class="dropdown-btn" data-action="<%= item.action %>">
-                        <%= item.label %>
+                <% model.userMenu.forEach(user=> { %>
+                    <button class="dropdown-btn" data-action="<%= user.action %>">
+                        <%= user.label %>
                     </button>
                     <% }) %>
             </div>

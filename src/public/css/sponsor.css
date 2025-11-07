@@ -1,14 +1,14 @@
 .sponsor-component {
     max-width: 600px;
     margin: 3rem auto;
-    background: var(--upb-white);
+    background: var(--innova-white);
     padding: 2.5rem;
     border-radius: 15px;
-    box-shadow: var(--upb-shadow);
+    box-shadow: var(--innova-shadow);
 }
 
 .sponsor-component h2 {
-    color: var(--upb-primary);
+    color: var(--innova-dark);
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -22,42 +22,43 @@
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: .5rem;
 }
 
 .form-group label {
     font-weight: 600;
-    color: var(--upb-text);
+    color: var(--innova-text);
 }
 
 .form-group input,
 .form-group textarea {
-    padding: 0.8rem 1rem;
-    border: 2px solid var(--upb-border);
+    padding: .8rem 1rem;
+    border: 2px solid var(--innova-pink);
     border-radius: 8px;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: border-color .2s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--upb-primary);
+    border-color: var(--innova-dark);
 }
 
 .submit-btn {
-    background: var(--upb-gradient);
-    color: var(--upb-white);
-    padding: 1rem 2rem;
+    background: var(--innova-gradient);
+    color: var(--innova-white);
     border: none;
     border-radius: 10px;
-    font-size: 1.1rem;
+    font-size: 1.09rem;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    padding: 1rem 2rem;
+    transition: box-shadow .2s, transform .2s;
 }
 
 .submit-btn:hover {
     transform: translateY(-2px);
-    box-shadow: var(--upb-shadow-hover);
+    box-shadow: var(--innova-shadow);
+    filter: brightness(1.12);
 }

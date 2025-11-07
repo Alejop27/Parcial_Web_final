@@ -1,15 +1,5 @@
 export interface HeaderModel {
     logo: string;
-    menuItems: MenuItem[];
-    userMenu: UserMenuItem[];
-}
-
-interface MenuItem {
-    label: string;
-    href: string;
-}
-
-interface UserMenuItem {
-    label: string;
-    action: string;
+    menuItems: { label: string; href: string; }[];
+    userMenu: { label: string; action: string; }[];
 }

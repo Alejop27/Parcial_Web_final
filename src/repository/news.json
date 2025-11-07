@@ -4,7 +4,7 @@
     "title": "Grupo viszla",
     "summary": "Grupo encargado de usuarios para nexus battles IV",
     "content": "El grupo vizsla era el encargado del modulo usuarios para el juego NEXUS BATTLE IV, sin embargo en su presentacion no supieron explicar su desarrollo y solo presentaron excusas, el servidor de correos no funciono, lo unico que presentaron fue el registro de usuarios y login, hubo problemas en la comunicacion, durante 2 sprints no alcanzaron un solo punto comprometido, excusandose en la comunicacion y situacion de discapacidad de un integrante.",
-    "image": "/assets/vizsla.jpg",
+    "image": "/assets/images/vizsla.jpg",
     "date": "2025-10-28",
     "comments": "La profe Claudia menciono 'uno como profesor nop puede evaluar un intento sino el producto, en el caso de este grupo, era mejor opcion asumir el 0 y no presentarse a solo presentar excusas'.  El profe briceño dijo 'directamente no habia producto de valor'"
   },
@@ -13,7 +13,7 @@
     "title": "Grupo Eldar",
     "summary": "Grupo encargado de inventario y la interfaz para nexus battles IV",
     "content": "El grupo Eldar era el encargado del modulo inventario y la interfaz para el juego NEXUS BATTLE IV, su presentacion fue buena, explicaron bien su trabajo en detalle, presentando correctamente el marco conceptual, metodologia y resultado, sin embargo los docentes tuvieron algunas criticas sobre sus diagramas y uso de ciertos elementos.",
-    "image": "/assets/driftmiku.png",
+    "image": "/assets/images/driftmiku.png",
     "date": "2025-10-28",
     "comments": "El profe lenin argumento que varios diagramas tenian errores, pero que el trabajo en general estaba bien. La profe danith comento que el grupo habia estimado erroneamente los puntos de historia, tambien dijo que no se veia muestra del CI/CD en la presentacion"
   },

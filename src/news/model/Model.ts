@@ -1,14 +1,11 @@
-import { NewsRepository } from '../../repository/newsRepository';
-import { NewsDetailModel } from '../types/Types';
-
-export class NewsModel implements NewsDetailModel {
-    constructor(public newsId: number, private repository: NewsRepository) { }
-
-    getNews() {
-        return this.repository.getNewsById(this.newsId);
+import { NewsRepository } from "../../repository/newsRepository";
+import { NewsItem } from "../types/Types";
+export class NewsModel {
+    constructor(private repository: NewsRepository) { }
+    getNewsById(id: number): NewsItem | undefined {
+        return this.repository.getNewsById(id);
     }
-
-    addLike(): void {
-        this.repository.addLike(this.newsId);
+    addLike(id: number): void {
+        this.repository.addLike(id);
     }
 }

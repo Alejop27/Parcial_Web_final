@@ -1,21 +1,18 @@
 <div class="sponsor-component">
     <h2>📢 Pauta tu Proyecto con Nosotros</h2>
-    <form id="sponsorForm" class="sponsor-form" enctype="multipart/form-data">
+    <form id="sponsorForm" class="sponsor-form" enctype="multipart/form-data" method="POST" action="/pauta">
         <% model.fields.forEach(field=> { %>
             <div class="form-group">
                 <label for="<%= field.name %>">
                     <%= field.label %>
-                        <%= field.required ? ' *' : '' %>
+                        <%= field.required ? '*' : '' %>
                 </label>
                 <% if (field.type==='textarea' ) { %>
-                    <textarea id="<%= field.name %>" name="<%= field.name %>" rows="5" <%=field.required ? 'required'
-                        : '' %>></textarea>
+                    <textarea id="<%= field.name %>" name="<%= field.name %>" required></textarea>
                     <% } else if (field.type==='file' ) { %>
-                        <input type="file" id="<%= field.name %>" name="<%= field.name %>" accept="image/*"
-                            <%=field.required ? 'required' : '' %>>
+                        <input type="file" id="<%= field.name %>" name="<%= field.name %>" accept="image/*" required />
                         <% } else { %>
-                            <input type="<%= field.type %>" id="<%= field.name %>" name="<%= field.name %>"
-                                <%=field.required ? 'required' : '' %>>
+                            <input type="<%= field.type %>" id="<%= field.name %>" name="<%= field.name %>" required />
                             <% } %>
             </div>
             <% }) %>

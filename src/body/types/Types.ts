@@ -1,5 +1,4 @@
-import { NewsItem } from '../../repository/newsRepository';
-
+import { NewsItem } from "../../news/types/Types";
 export interface BodyViewModel {
     collageTitle: string;
     newsItems: NewsItem[];

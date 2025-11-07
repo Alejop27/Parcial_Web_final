@@ -8,21 +8,19 @@
 
 <section class="news-feed">
     <div class="feed-controls">
-        <input type="search" id="searchBar" placeholder="Buscar proyectos..." value="<%= model.searchQuery %>">
+        <input type="search" id="searchBar" placeholder="Buscar proyectos..." value="<%= model.searchQuery %>" />
         <select id="categoryFilter">
             <option value="all">Todos los proyectos</option>
             <% model.categories.forEach(cat=> { %>
-                <option value="<%= cat %>" <%=model.currentFilter===cat ? 'selected' : '' %>>
-                    <%= cat %>
+                <option value="<%= cat %>" <%=model.currentFilter===cat ? 'selected' : '' %>><%= cat %>
                 </option>
                 <% }) %>
         </select>
     </div>
-
-    <div class="news-grid" id="newsGrid">
+    <div id="newsGrid" class="news-grid">
         <% model.newsItems.forEach(item=> { %>
-            <article class="news-card" data-id="<%= item.id %>" data-overlay="news">
-                <img src="<%= item.image %>" alt="<%= item.title %>" loading="lazy">
+            <article class="news-card" data-id="<%= item.id %>">
+                <img src="<%= item.image %>" alt="<%= item.title %>" loading="lazy" />
                 <div class="card-body">
                     <h3>
                         <%= item.title %>
@@ -34,20 +32,18 @@
                         <%= item.summary.substring(0, 120) %>...
                     </p>
                     <div class="card-meta">
-                        <span class="likes">❤️ <%= Math.floor(Math.random() * 50) + 10 %></span>
+                        <span class="likes">❤️ 20</span>
                         <span class="category">
                             <%= item.summary.split(' ')[0] %></span>
+          </div>
         </div>
-        </div>
-    </article>
+      </article>
     <% }) %>
-</div>
+  </div>
 
-<div class="pagination" id="pagination">
-    <% for(let i = 1; i <= model.totalPages; i++) { %>
-    <button class="page-btn <%= i === model.currentPage ? ' active' : '' %>" data-page="<%= i %>">
-                                    <%= i %>
-                                        </button>
+  <div id="pagination" class="pagination">
+    <% for(let i=1; i <= model.totalPages; i++) { %>
+      <button class="page-btn <%= i === model.currentPage ? ' active' : '' %>" data-page="<%= i %>"><%= i %></button>
                                         <% } %>
                     </div>
 </section>

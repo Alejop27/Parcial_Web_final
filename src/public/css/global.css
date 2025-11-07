@@ -1,31 +1,18 @@
 :root {
-    --upb-primary: #003366;
-    --upb-primary-light: #005580;
-    --upb-accent: #2ECC71;
-    --upb-accent-dark: #27AE60;
-    --upb-bg: #F8F9FA;
-    --upb-white: #FFFFFF;
-    --upb-text: #2C3E50;
-    --upb-text-light: #7F8C8D;
-    --upb-border: #ECF0F1;
-    --upb-success: #27AE60;
-    --upb-warning: #F39C12;
-    --upb-danger: #E74C3C;
-    --upb-gradient: linear-gradient(135deg, var(--upb-primary) 0%, var(--upb-primary-light) 100%);
-    --upb-shadow: 0 4px 20px rgba(0, 51, 102, 0.15);
-    --upb-shadow-hover: 0 8px 30px rgba(0, 51, 102, 0.25);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    --innova-gradient: linear-gradient(90deg, #ff3577 0%, #f9477e 30%, #c13fed 100%);
+    --innova-dark: #c13fed;
+    --innova-pink: #ff3577;
+    --innova-bg: #fff;
+    --innova-text: #2c3e50;
+    --innova-white: #fff;
+    --innova-shadow: 0 4px 24px rgba(61, 0, 86, 0.11);
 }
 
 body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    background: var(--upb-bg);
-    color: var(--upb-text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: var(--innova-bg);
+    color: var(--innova-text);
 }
 
 .app-root {
@@ -36,4 +23,5 @@ body {
 
 .main-content {
     flex: 1;
+    padding: 0;
 }

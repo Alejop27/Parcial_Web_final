@@ -1,24 +1,24 @@
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(55, 0, 86, 0.91);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2000;
-    animation: fadeIn 0.3s ease;
+    animation: fadeIn .2s ease;
     backdrop-filter: blur(5px);
 }
 
 .news-modal {
-    background: var(--upb-white);
+    background: var(--innova-white);
     width: 90%;
     max-width: 800px;
     max-height: 90vh;
     border-radius: 20px;
     overflow-y: auto;
     position: relative;
-    animation: slideUp 0.4s ease;
+    animation: slideUp .3s ease;
 }
 
 .modal-close {
@@ -28,10 +28,8 @@
     font-size: 2rem;
     background: none;
     border: none;
+    color: var(--innova-pink);
     cursor: pointer;
-    z-index: 10;
-    color: var(--upb-white);
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .modal-image {
@@ -45,38 +43,26 @@
 }
 
 .modal-content h2 {
-    color: var(--upb-primary);
-    margin-bottom: 0.5rem;
-}
-
-.modal-content time {
-    color: var(--upb-text-light);
-    margin-bottom: 1.5rem;
-    display: block;
-}
-
-.modal-summary {
-    line-height: 1.6;
-    margin-bottom: 2rem;
+    color: var(--innova-pink);
+    margin-bottom: .6rem;
 }
 
 .teacher-comments {
     margin: 2rem 0;
-    padding: 1.5rem;
-    background: var(--upb-bg);
+    padding: 1rem;
+    background: #f8f9fa;
     border-radius: 10px;
 }
 
 .teacher-comments h3 {
-    color: var(--upb-primary);
-    margin-bottom: 1rem;
+    color: var(--innova-pink);
+    margin-bottom: .7rem;
 }
 
 .teacher-comments blockquote {
-    border-left: 4px solid var(--upb-accent);
+    border-left: 4px solid var(--innova-dark);
     padding-left: 1rem;
     font-style: italic;
-    line-height: 1.6;
 }
 
 .modal-actions {
@@ -88,28 +74,20 @@
 
 .btn-like,
 .btn-fav {
-    padding: 1rem 2rem;
+    background: var(--innova-gradient);
+    color: var(--innova-white);
     border: none;
     border-radius: 10px;
     cursor: pointer;
     font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.btn-like {
-    background: var(--upb-danger);
-    color: var(--upb-white);
-}
-
-.btn-fav {
-    background: var(--upb-accent);
-    color: var(--upb-white);
+    padding: 1rem 2rem;
+    transition: box-shadow .2s, transform .2s;
 }
 
 .btn-like:hover,
 .btn-fav:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--upb-shadow-hover);
+    box-shadow: var(--innova-shadow);
+    transform: translateY(-2px) scale(1.05);
 }
 
 @keyframes fadeIn {
@@ -125,7 +103,7 @@
 @keyframes slideUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
     }
 
     to {

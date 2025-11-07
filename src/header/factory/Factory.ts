@@ -1,5 +1,5 @@
-import { HeaderModelImpl } from '../model/Model';
-import { HeaderView } from '../view/View';
+import { HeaderModelImpl } from "../model/Model";
+import { HeaderView } from "../view/View";
 
 export class HeaderFactory {
     createComponent() {

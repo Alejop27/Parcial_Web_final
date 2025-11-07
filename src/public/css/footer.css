@@ -1,6 +1,6 @@
 .upb-footer {
-    background: var(--upb-primary);
-    color: var(--upb-white);
+    background: var(--innova-gradient);
+    color: var(--innova-white);
     padding: 2rem 0 1rem;
     margin-top: 4rem;
 }
@@ -19,18 +19,19 @@
 }
 
 .footer-link {
-    color: var(--upb-white);
+    color: var(--innova-white);
     text-decoration: none;
-    transition: opacity 0.3s ease;
+    transition: opacity .2s;
 }
 
 .footer-link:hover {
-    opacity: 0.8;
+    opacity: .75;
+    text-shadow: 0 2px 6px #c13fed66;
 }
 
 .footer-contact {
     text-align: right;
-    font-size: 0.9rem;
+    font-size: .91rem;
     line-height: 1.6;
 }
 
@@ -39,5 +40,5 @@
     margin-top: 2rem;
     padding-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 0.8rem;
+    font-size: .81rem;
 }
