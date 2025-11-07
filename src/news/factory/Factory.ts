@@ -12,7 +12,8 @@ export class NewsFactory {
         return {
             model,
             view,
-            render: () => view.render(newsId),
+            // ahora render devuelve una promesa
+            render: async () => await view.render(newsId),
             addLike: () => model.addLike()
         };
     }

@@ -17,12 +17,23 @@
 
 <body>
     <div class="app-root">
+        <!-- Encabezado -->
         <%- header %>
+
+            <!-- Contenido principal -->
             <main class="main-content">
                 <%- body %>
+
+                    <!-- Sección de patrocinadores -->
+                    <section class="sponsor-section">
+                        <%- sponsor %>
+                    </section>
             </main>
+
+            <!-- Pie de página -->
             <%- footer %>
     </div>
+
     <div id="modalLayer"></div>
     <script src="/js/app.js"></script>
 </body>

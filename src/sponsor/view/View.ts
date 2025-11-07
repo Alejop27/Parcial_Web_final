@@ -3,10 +3,10 @@ import ejs from 'ejs';
 import path from 'path';
 
 export class SponsorView {
-    render(model: SponsorFormModel): string {
-        return ejs.renderFile(
-            path.join(__dirname, '../template/sponsor-form.ejs'),
+    async render(model: SponsorFormModel): Promise<string> {
+        return await ejs.renderFile(
+            path.join(__dirname, '../../template/sponsor-form.ejs'),
             { model }
-        ).toString();
+        );
     }
 }

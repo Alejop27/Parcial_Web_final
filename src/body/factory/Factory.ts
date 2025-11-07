@@ -12,7 +12,7 @@ export class BodyFactory {
         return {
             model,
             view,
-            render: () => view.render(model.getViewModel(page, filter, search)),
+            render: async () => await view.render(model.getViewModel(page, filter, search)),
             getViewModel: () => model.getViewModel(page, filter, search)
         };
     }

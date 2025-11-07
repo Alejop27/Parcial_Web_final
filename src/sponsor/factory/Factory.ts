@@ -9,7 +9,7 @@ export class SponsorFactory {
         return {
             model,
             view,
-            render: () => view.render(model),
+            render: async () => await view.render(model),
             saveForm: (data: any, file: any) => model.saveForm(data, file)
         };
     }

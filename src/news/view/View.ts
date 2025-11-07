@@ -5,11 +5,11 @@ import { NewsRepository } from '../../repository/newsRepository';
 export class NewsView {
     constructor(private repository: NewsRepository) { }
 
-    render(newsId: number): string {
+    async render(newsId: number): Promise<string> {
         const news = this.repository.getNewsById(newsId);
-        return ejs.renderFile(
-            path.join(__dirname, '../template/news-detail.ejs'),
-            { news }
-        ).toString();
+        const templatePath = path.join(__dirname, '../../template/news-detail.ejs');
+
+        // Espera el resultado del renderizado (ya no devuelve Promise pendiente)
+        return await ejs.renderFile(templatePath, { news });
     }
 }

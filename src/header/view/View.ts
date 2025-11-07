@@ -3,10 +3,8 @@ import ejs from 'ejs';
 import path from 'path';
 
 export class HeaderView {
-    render(model: HeaderModel): string {
-        return ejs.renderFile(
-            path.join(__dirname, '../template/header.ejs'),
-            { model }
-        ).toString();
+    async render(model: HeaderModel): Promise<string> {
+        const filePath = path.join(__dirname, '../../template/header.ejs');
+        return await ejs.renderFile(filePath, { model });
     }
 }
