@@ -1,5 +1,5 @@
 import { NewsRepository } from "../../repository/newsRepository";
-import { FavoriteRepository } from "../../repository/favoriteRepository";
+import { FavoriteRepository } from "../../repository/FavoriteRepository ";
 export class FavoritesModel {
     constructor(private repo: FavoriteRepository, private newsRepo: NewsRepository) { }
     getFavoriteNews(userId: string) {

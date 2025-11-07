@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { FavoriteRepository } from "../../repository/favoriteRepository";
+import { FavoriteRepository } from "../../repository/FavoriteRepository ";
 import { NewsRepository } from "../../repository/newsRepository";
 import { FavoritesFactory } from "../factory/Factory";
 const router = Router();
